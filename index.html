@@ -124,6 +124,18 @@
       max-width: 26ch;
     }
 
+    /* Interests photo: save it as interests.jpg next to index.html */
+    .interests-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      margin-top: 40px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
     footer {
       width: 100%;
       max-width: 620px;
@@ -154,7 +166,7 @@
     <section id="home">
       <img class="photo rise d1" src="me.jpg" alt="Mason Liu" onerror="this.style.visibility='hidden'">
       <h1 class="rise d1">Mason Liu</h1>
-      <p class="tagline rise d2">Student at Penn. A small corner of the internet &mdash; more here soon.</p>
+      <p class="tagline rise d2">Student at Penn. </p>
 
       <div class="rise d3">
         <hr>
@@ -170,6 +182,7 @@
     <section id="interests" hidden>
       <p class="label rise d1">Interests</p>
       <p class="interests rise d2">Talk to me about swimming, cooking steaks, classical piano, Japan, and Oreos.</p>
+      <img class="interests-photo rise d3" src="interests.jpg" alt="" onerror="this.style.display='none'">
     </section>
   </main>
 
