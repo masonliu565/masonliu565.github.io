@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mason Liu</title>
+  <meta name="description" content="Mason Liu's personal site.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Forest palette */
+    :root {
+      --bg:     #10171a;
+      --fg:     #dfe7e2;  /* name */
+      --muted:  #86948e;  /* subtitle, labels, footer */
+      --accent: #7fc4a4;  /* link hover only */
+      --line:   #1f2a2d;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { background: var(--bg); }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Noto Sans JP", system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 16vh 24px 64px;
+    }
+
+    /* Photo: save your picture as me.jpg next to index.html */
+    .photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 32px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: clamp(2.6rem, 9vw, 4.25rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--fg);
+    }
+
+    .tagline {
+      margin-top: 18px;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 36ch;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: var(--line);
+      margin: 48px 0 28px;
+    }
+
+    .label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    ul.links { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 28px; }
+    ul.links a {
+      color: var(--fg);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 2px;
+      transition: color .25s ease, border-color .25s ease;
+    }
+    ul.links a:hover, ul.links a:focus-visible { color: var(--accent); border-color: var(--accent); outline: none; }
+    ul.links a span { display: inline-block; transition: transform .25s ease; }
+    ul.links a:hover span { transform: translate(2px, -2px); }
+
+    /* top tabs */
+    nav {
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 28px 24px 0;
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    nav a { color: var(--muted); text-decoration: none; transition: color .25s ease; }
+    nav a:hover, nav a:focus-visible { color: var(--accent); outline: none; }
+    nav a[aria-current="page"] { color: var(--fg); }
+
+    section[hidden] { display: none; }
+
+    .interests {
+      font-weight: 300;
+      font-size: clamp(1.4rem, 4.5vw, 1.9rem);
+      line-height: 1.5;
+      color: var(--fg);
+      max-width: 26ch;
+    }
+
+    footer {
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 0 24px 32px;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--muted);
+    }
+
+    /* gentle entrance */
+    .rise { opacity: 0; transform: translateY(8px); animation: rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+    .d1 { animation-delay: .05s; } .d2 { animation-delay: .18s; } .d3 { animation-delay: .32s; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .rise { animation: none; opacity: 1; transform: none; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#home" data-tab="home">Home</a>
+    <a href="#interests" data-tab="interests">Interests</a>
+  </nav>
+
+  <main>
+    <section id="home">
+      <img class="photo rise d1" src="me.jpg" alt="Mason Liu" onerror="this.style.visibility='hidden'">
+      <h1 class="rise d1">Mason Liu</h1>
+      <p class="tagline rise d2">Student at Penn. A small corner of the internet &mdash; more here soon.</p>
+
+      <div class="rise d3">
+        <hr>
+        <p class="label">Elsewhere</p>
+        <ul class="links">
+          <li><a href="mailto:masonliu565@gmail.com">Email <span>&#8599;</span></a></li>
+          <li><a href="https://github.com/masonliu565">GitHub <span>&#8599;</span></a></li>
+          <li><a href="https://www.linkedin.com/in/masonliu565">LinkedIn <span>&#8599;</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="interests" hidden>
+      <p class="label rise d1">Interests</p>
+      <p class="interests rise d2">Talk to me about swimming, cooking steaks, classical piano, Japan, and Oreos.</p>
+    </section>
+  </main>
+
+  <footer>&copy; <span id="y"></span></footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    const tabs = ['home', 'interests'];
+    function show() {
+      const current = tabs.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'home';
+      tabs.forEach(t => {
+        const sec = document.getElementById(t);
+        sec.hidden = t !== current;
+        // replay the entrance animation on switch
+        sec.querySelectorAll('.rise').forEach(el => {
+          el.style.animation = 'none'; el.offsetHeight; el.style.animation = '';
+        });
+      });
+      document.querySelectorAll('nav a').forEach(a =>
+        a.dataset.tab === current ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
+      window.scrollTo(0, 0);
+    }
+    window.addEventListener('hashchange', show);
+    show();
+  </script>
+</body>
+</html>
